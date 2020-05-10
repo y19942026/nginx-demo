@@ -21,7 +21,7 @@ function e(cmd, options = {}) {
   })
 }
 
-const dir = process.argv[2]
+const dir = (process.argv[2] || '').replace(/\/$/, '')
 if (dir) {
   fs.stat(`./${dir}`, function(err, stats) {
     if (err) {
@@ -29,7 +29,8 @@ if (dir) {
     }
     if (stats.isDirectory()) {
       e('rm -rf /etc/nginx/conf.d/*')
-        .then(() => e(`cp ./${dir} /etc/nginx/conf.d/`))
+        .then(() => e(`cp ./${dir}/* /etc/nginx/conf.d/`))
+        .then(() => e('nginx -s reload'))
     }
   })
 }
