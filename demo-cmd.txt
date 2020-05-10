@@ -1,0 +1,2 @@
+curl -I url // 只查看头信息
+curl -e 'http://www.baidu.com' -I url // 指定referer
