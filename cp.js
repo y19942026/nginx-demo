@@ -29,7 +29,7 @@ if (dir) {
     }
     if (stats.isDirectory()) {
       e('rm -rf /etc/nginx/conf.d/*')
-        .then(() => e(`cp ./${dir}/* /etc/nginx/conf.d/`))
+        .then(() => e(`cp -r ./${dir}/* /etc/nginx/conf.d/`))
         // .then(() => e('/usr/sbin/nginx -s reload'))
     }
   })
