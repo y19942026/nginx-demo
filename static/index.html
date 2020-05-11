@@ -9,14 +9,15 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+index
 <script>
     $.ajax({
       url: 'http://www.ranbom.top',
       success(res) {
         console.log(res)
       },
-      error(e) {
-        console.log(e)
+      error() {
+        console.log('失败')
       },
     })
 </script>
